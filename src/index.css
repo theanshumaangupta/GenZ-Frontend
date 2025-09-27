@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+.font-sans {
+    font-family: "DM Sans";
+}
+
+body {
+    cursor: url('/public/assets/cursor-arrow.svg'), auto;
+}
+.bg-primary{
+    background: #F0EBE6;
+}
+
+

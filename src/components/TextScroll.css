@@ -1,0 +1,42 @@
+/* TextScroll.css */
+
+/* Set a light beige-like color for the primary background */
+.text-scroll-box {
+  background-color: #f7f3ed; /* A light, off-white/beige tone */
+}
+
+/* Ensure the words are set up for individual transformation */
+.animated-word {
+  /* Set initial text color */
+  color: black; 
+  /* The absolute positioning combined with transforms is key */
+  position: absolute;
+  /* Adjust font size and weight as needed to match the 9xl size in Tailwind */
+  font-size: 8rem; /* Use a fixed size or ensure Tailwind's 9xl is applied */
+  line-height: 1;
+  
+  /* Initial state before scroll animation starts */
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5) rotate(45deg); 
+  
+  /* Smooth out the animation transitions */
+  transition: opacity 0.1s ease-out; 
+}
+
+/* This container will house all the absolutely positioned words */
+.moving-text-container {
+  /* We gave it a height in the component (h-[30vh]), but ensure it's centered */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style the doodles/emojis */
+.doodle-1, .doodle-2 {
+    font-size: 4rem; /* Make the doodles large */
+    /* Add any other specific styling or use image/SVG */
+}
+
+/* For your Tailwind/CSS setup, ensure 'h1-text', 'h1-div', etc. are removed 
+   if they are no longer in use, and that the Tailwind classes are correctly 
+   compiling (like text-9xl, font-[1000], etc.) */
