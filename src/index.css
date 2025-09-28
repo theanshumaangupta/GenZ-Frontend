@@ -13,5 +13,10 @@ body {
 
 .up{
     transform: translateY(var(--progress, 0%)) rotate(var(--progressTurn)) scale(var(--ratio));
+    display: inline-block;
+}
+.down{
+    display: inline-block;
+    transform: translateY(var(--progress, 0%)) rotate(var(--progressTurn)) scale(var(--ratio));
    
 }
