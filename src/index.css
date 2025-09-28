@@ -11,4 +11,7 @@ body {
     background: #F0EBE6;
 }
 
-
+.up{
+    transform: translateY(var(--progress, 0%)) rotate(var(--progressTurn)) scale(var(--ratio));
+   
+}
