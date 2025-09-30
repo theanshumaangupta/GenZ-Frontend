@@ -32,7 +32,7 @@ export default function TextScroll() {
                 const progress = scrolled / totalScroll;
 
                 // calculating progress to text movement
-                const moveX = 80 - progress * 150; // start 80% → end -70%
+                const moveX = 80 - progress * 135; // start 80% → end -70%
 
                 textRef.current.style.transform = `translateX(${moveX}%)`;
 
@@ -43,10 +43,22 @@ export default function TextScroll() {
                 const default_startScale = 1;
                 const default_yPosn = 0;
                 const default_dir = -1
-                const svg = document.querySelector(".arrow-svg");
-                const path = svg.querySelector("path");
-                const fullLength = path.getTotalLength();
-                path.style.strokeDasharray = `${(progress*2.5)*fullLength}px, ${fullLength}px`;
+
+                const first_arrow = document.querySelector(".arrow-svg");
+                const first_arrow_path = first_arrow.querySelector("path");
+                const first_fullLength = first_arrow_path.getTotalLength();
+                first_arrow_path.style.strokeDasharray = `${(progress * 2.5) * first_fullLength}px, ${first_fullLength}px`;
+
+                const sec_arrow = document.querySelector(".second-arrow");
+                const sec_arrow_path = sec_arrow.querySelector("path");
+                const sec_fullLength = sec_arrow_path.getTotalLength();
+
+                let start = 0.5
+                let end = 1.0
+                let res = progress > start ? ((progress - start) / (end - start)) : 0;
+                console.log(res);
+
+                sec_arrow_path.style.strokeDasharray = `${res * sec_fullLength/2}px, ${sec_fullLength/2}px`;
 
                 const chars = textRef.current.querySelectorAll(".h1-text > *");
                 chars.forEach((el, idx) => {
@@ -90,7 +102,7 @@ export default function TextScroll() {
             <div className="sticky overflow-hidden top-0 pt-20 h-screen flex flex-col justify-evenly items-center">
                 <div ref={textRef} className="moving-text h1-div">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 378 127" fill="none" data-scroll-animation="draw" className="absolute left-[20%] -top-20 w-[20rem] team-grid__line-1-svg arrow-svg"><path d="M2 123C9 35.9999 84.5 17 124 25.9999C217.764 47.3635 207 115 177.5 123C105.777 142.45 110.737 1.99991 232.5 2C310.5 2.00006 366.5 79 376 118" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="753.06 9.08" style={{ transformOrigin: "0px 0px", strokeDashoffset: "0", strokeDasharray: "739.567px, 10000px" }} data-svg-origin="2 2"></path></svg>
-                    <h1  className="h1-text whitespace-nowrap text-[10rem] font-[1000] font-sans z-10 relative">
+                    <h1 className="h1-text whitespace-nowrap text-[10rem] font-[1000] font-sans z-10 relative">
 
                         <img src="assets/thumb.svg" dir="-1" degrotate="0" rotatespeed="4" startposny="300px" yspeed="5" delay="0.2" scalestart="0.1" scalespeed="2" className="char absolute w-40 inline  -top-30 left-[10%] z-50" alt="" />
                         <img src="assets/arrow-star.svg" dir="-1" degrotate="0" rotatespeed="4" startposny="300px" yspeed="5" delay="0.2" scalestart="0.1" scalespeed="2" className="char absolute w-30 inline  -bottom-20 left-[50%] z-50" alt="" />
@@ -135,6 +147,23 @@ export default function TextScroll() {
 
 
                     </h1>
+
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 140 127"
+                        fill="none"
+                        className="horizontal-words__arrow-end-svg second-arrow absolute right-[0%] translate-x-[110%] translate-y-[115%] -top-20 w-[12rem] team-grid__line-1-svg arrow-svg"
+                        width="100%"
+                    >
+                        <path
+                            d="M2.03125 2.42188C100.469 2.42188 130.156 52.4219 118.437 125.078L99.6875 107.891
+           M2.03125 2.42188C100.469 2.42188 130.156 52.4219 118.438 125.078L137.969 110.234"
+                            stroke="currentColor"
+                            strokeWidth="3"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        />
+                    </svg>
                 </div>
                 <p className="text-xl max-w-xl text-center font-semibold">
                     Audiences are more scattered and more reachable than ever. We help brands
