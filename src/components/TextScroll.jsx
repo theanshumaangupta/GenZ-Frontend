@@ -39,14 +39,16 @@ export default function TextScroll() {
                 const default_MoveYSpeed = 2;
                 const default_rotateSpeed = 4;
                 const default_rotateDegree = 0;
-                const default_scaleSpeed = 4;
+                const default_scaleSpeed = 8;
                 const default_startScale = 1;
                 const default_yPosn = 0;
                 const default_dir = -1
+                const svg = document.querySelector(".arrow-svg");
+                const path = svg.querySelector("path");
+                const fullLength = path.getTotalLength();
+                path.style.strokeDasharray = `${(progress*2.5)*fullLength}px, ${fullLength}px`;
 
-
-
-                const chars = textRef.current.querySelectorAll("h1 > div");
+                const chars = textRef.current.querySelectorAll(".h1-text > *");
                 chars.forEach((el, idx) => {
                     const dir = parseInt(el.getAttribute("dir")) || default_dir;
                     const rotateDegree = parseInt(el.getAttribute("degrotate")) || default_rotateDegree;
@@ -55,14 +57,19 @@ export default function TextScroll() {
                     const ySpeed = parseFloat(el.getAttribute("yspeed")) || default_MoveYSpeed;
                     const delay = parseFloat(el.getAttribute("delay")) || 0;
                     const scaleStart = parseFloat(el.getAttribute("scalestart")) || default_startScale;
+                    const scalespeed = parseFloat(el.getAttribute("scalespeed")) || default_scaleSpeed;
 
                     //  a per-character delay (0.05 means 5% later for next char)
                     const charDelay = idx * 0.02 + delay;
                     const delayedProgress = Math.min(Math.max(progress - charDelay, 0), 1);
 
+
+                    // Setting the posn nmapped with scroll progress
                     el.style.setProperty('--progress', `${dir * wobble(Math.min(delayedProgress * ySpeed, 1), startPosY)}px`);
+                    // Setting the rotate nmapped with scroll progress
                     el.style.setProperty('--progressTurn', `${dir * Math.max(rotateDegree - (delayedProgress * rotateSpeed * rotateDegree), 0)}deg`);
-                    el.style.setProperty('--ratio', `${Math.min(Math.max(progress * default_scaleSpeed, scaleStart), 1)}`);
+                    // Setting the scale nmapped with scroll progress
+                    el.style.setProperty('--ratio', `${Math.min(Math.max(progress * scalespeed, scaleStart), 1)}`);
                 })
 
             }
@@ -80,47 +87,56 @@ export default function TextScroll() {
 
     return (
         <section ref={boxRef} className="bg-primary h-[300vh] w-full">
-            <div className="sticky overflow-hidden top-0 h-screen flex flex-col justify-evenly items-center">
+            <div className="sticky overflow-hidden top-0 pt-20 h-screen flex flex-col justify-evenly items-center">
                 <div ref={textRef} className="moving-text h1-div">
-                    <h1 className="h1-text whitespace-nowrap text-[10rem] font-[1000] font-sans z-10 relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 378 127" fill="none" data-scroll-animation="draw" className="absolute left-[20%] -top-20 w-[20rem] team-grid__line-1-svg arrow-svg"><path d="M2 123C9 35.9999 84.5 17 124 25.9999C217.764 47.3635 207 115 177.5 123C105.777 142.45 110.737 1.99991 232.5 2C310.5 2.00006 366.5 79 376 118" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="753.06 9.08" style={{ transformOrigin: "0px 0px", strokeDashoffset: "0", strokeDasharray: "739.567px, 10000px" }} data-svg-origin="2 2"></path></svg>
+                    <h1  className="h1-text whitespace-nowrap text-[10rem] font-[1000] font-sans z-10 relative">
 
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 378 127" fill="none" data-scroll-animation="draw" className="w-[20rem] team-grid__line-1-svg"><path d="M2 123C9 35.9999 84.5 17 124 25.9999C217.764 47.3635 207 115 177.5 123C105.777 142.45 110.737 1.99991 232.5 2C310.5 2.00006 366.5 79 376 118" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="753.06 9.08" style={{transformOrigin: "0px 0px", strokeDashoffset: "0", strokeDasharray: "739.567px, 0.1px"}} data-svg-origin="2 2"></path></svg>
-                        <div dir="+1" degrotate="0" rotatespeed="4" startposny="10px" yspeed="5" delay="0" scalestart="1" className="down">w</div>
-                        <div dir="-1" degrotate="0" rotatespeed="4" startposny="200px" yspeed="5" delay="0" scalestart="1" className="up">e</div>&nbsp;
+                        <img src="assets/thumb.svg" dir="-1" degrotate="0" rotatespeed="4" startposny="300px" yspeed="5" delay="0.2" scalestart="0.1" scalespeed="2" className="char absolute w-40 inline  -top-30 left-[10%] z-50" alt="" />
+                        <img src="assets/arrow-star.svg" dir="-1" degrotate="0" rotatespeed="4" startposny="300px" yspeed="5" delay="0.2" scalestart="0.1" scalespeed="2" className="char absolute w-30 inline  -bottom-20 left-[50%] z-50" alt="" />
+                        <img src="assets/smartphone-hand.svg" dir="+1" degrotate="0" rotatespeed="4" startposny="40px" yspeed="5" delay="0.2" scalestart="0.1" scalespeed="2" className="char absolute w-30 inline  -top-0 left-[70%] z-50" alt="" />
 
-                        <div dir="-1" degrotate="0" rotatespeed="4" startposny="0px" yspeed="10" delay="0.9" scalestart="1" className="up">w</div>
-                        <div dir="+1" degrotate="10" rotatespeed="5" startposny="400px" yspeed="5" delay="0" scalestart="0.9" className="down">a</div>
-                        <div dir="-1" degrotate="0" rotatespeed="4" startposny="400px" yspeed="4" delay="0" scalestart="0.5" className="up">n</div>
-                        <div dir="-1" degrotate="0" rotatespeed="4" startposny="400px" yspeed="3" delay="0" scalestart="0.5" className="down">n</div>
-                        <div dir="-1" degrotate="0" rotatespeed="4" startposny="400px" yspeed="2" delay="0" scalestart="0.9" className="up">a</div>&nbsp;
 
-                        <div dir="-1" degrotate="180" rotatespeed="4" startposny="40px" yspeed="4" delay="0" scalestart="0.9" className="down">b</div>
-                        <div dir="-1" degrotate="145" rotatespeed="4" startposny="50px" yspeed="5" delay="0.1" scalestart="0.9" className="up">e</div>&nbsp;
 
-                        <div dir="-1" degrotate="10" rotatespeed="4" startposny="200px" yspeed="8" delay="0.15" scalestart="0.5" className="down">w</div>
-                        <div dir="-1" degrotate="10" rotatespeed="4" startposny="200px" yspeed="6" delay="0.19" scalestart="0.5" className="down">h</div>
-                        <div dir="-1" degrotate="10" rotatespeed="4" startposny="20px" yspeed="4" delay="0.25" scalestart="0.5" className="up">e</div>
-                        <div dir="-1" degrotate="10" rotatespeed="4" startposny="220px" yspeed="6" delay="0.2" scalestart="0.8" className="up">r</div>
-                        <div dir="-1" degrotate="0" rotatespeed="4" startposny="150px" yspeed="6" delay="0.22" scalestart="0.5" className="down">e</div>&nbsp;
-                        <div dir="-1" degrotate="0" rotatespeed="4" startposny="100px" yspeed="6" delay="0.22" scalestart="0.5" className="down">t</div>
-                        <div dir="1" degrotate="0" rotatespeed="4" startposny="100px" yspeed="6" delay="0.23" scalestart="1" className="up">h</div>
-                        <div dir="-1" degrotate="0" rotatespeed="4" startposny="200px" yspeed="6" delay="0.24" scalestart="1" className="down">e</div>&nbsp;
+                        <div dir="+1" degrotate="0" rotatespeed="4" startposny="10px" yspeed="5" delay="0" scalestart="1" className="char">w</div>
+                        <div dir="-1" degrotate="0" rotatespeed="4" startposny="200px" yspeed="5" delay="0" scalestart="1" className="char">e</div>&nbsp;
 
-                        <div dir="1" degrotate="-10" rotatespeed="8" startposny="150px" yspeed="6" delay="0.1" scalestart="1" className="up">p</div>
-                        <div dir="1" degrotate="-10" rotatespeed="6" startposny="130px" yspeed="5" delay="0.1" scalestart="1" className="down">e</div>
-                        <div dir="1" degrotate="10" rotatespeed="6" startposny="110px" yspeed="4" delay="0.1" scalestart="1" className="down">o</div>
-                        <div dir="-1" degrotate="40" rotatespeed="4" startposny="200px" yspeed="6" delay="0.15" scalestart="1" className="up">p</div>
-                        <div dir="-1" degrotate="0" rotatespeed="4" startposny="180px" yspeed="5" delay="0.16" scalestart="1" className="up">l</div>
-                        <div dir="-1" degrotate="0" rotatespeed="4" startposny="160px" yspeed="4" delay="0.18" scalestart="1" className="down">e</div>&nbsp;
+                        <div dir="-1" degrotate="0" rotatespeed="4" startposny="0px" yspeed="10" delay="0.9" scalestart="1" className="char">w</div>
+                        <div dir="+1" degrotate="10" rotatespeed="5" startposny="200px" yspeed="5" delay="0" scalestart="0.9" className="char">a</div>
+                        <div dir="-1" degrotate="0" rotatespeed="4" startposny="400px" yspeed="4" delay="0" scalestart="0.5" className="char">n</div>
+                        <div dir="-1" degrotate="0" rotatespeed="4" startposny="400px" yspeed="3" delay="0" scalestart="0.5" className="char">n</div>
+                        <div dir="-1" degrotate="0" rotatespeed="4" startposny="400px" yspeed="2" delay="0" scalestart="0.9" className="char">a</div>&nbsp;
 
-                        <div dir="-1" degrotate="20" rotatespeed="4" startposny="200px" yspeed="2" delay="0" scalestart="0.5" className="down">a</div>
-                        <div dir="+1" degrotate="20" rotatespeed="4" startposny="50px" yspeed="2" delay="0" scalestart="0.5" className="up">r</div>
-                        <div dir="-1" degrotate="20" rotatespeed="4" startposny="200px" yspeed="2" delay="0" scalestart="0.5" className="down">e</div>
+                        <div dir="-1" degrotate="180" rotatespeed="4" startposny="40px" yspeed="4" delay="0" scalestart="0.9" className="char">b</div>
+                        <div dir="-1" degrotate="145" rotatespeed="4" startposny="50px" yspeed="5" delay="0.1" scalestart="0.9" className="char">e</div>&nbsp;
+
+                        <div dir="-1" degrotate="10" rotatespeed="4" startposny="200px" yspeed="8" delay="0.15" scalestart="0.7" className="char">w</div>
+                        <div dir="-1" degrotate="10" rotatespeed="4" startposny="200px" yspeed="6" delay="0.19" scalestart="0.7" className="char">h</div>
+
+                        <div dir="-1" degrotate="10" rotatespeed="4" startposny="20px" yspeed="4" delay="0.25" scalestart="0.5" className="char">e</div>
+
+                        <div dir="-1" degrotate="10" rotatespeed="4" startposny="220px" yspeed="6" delay="0.2" scalestart="0.8" className="char">r</div>
+                        <div dir="-1" degrotate="0" rotatespeed="4" startposny="150px" yspeed="6" delay="0.22" scalestart="0.7" className="char">e</div>&nbsp;
+
+                        <div dir="-1" degrotate="0" rotatespeed="4" startposny="100px" yspeed="6" delay="0.22" scalestart="0.8" className="char">t</div>
+                        <div dir="1" degrotate="0" rotatespeed="4" startposny="100px" yspeed="6" delay="0.23" scalestart="1" className="char">h</div>
+                        <div dir="-1" degrotate="0" rotatespeed="4" startposny="200px" yspeed="6" delay="0.24" scalestart="1" className="char">e</div>&nbsp;
+
+                        <div dir="1" degrotate="-10" rotatespeed="8" startposny="150px" yspeed="6" delay="0.1" scalestart="1" className="char">p</div>
+                        <div dir="1" degrotate="-10" rotatespeed="6" startposny="130px" yspeed="5" delay="0.1" scalestart="1" className="char">e</div>
+                        <div dir="1" degrotate="10" rotatespeed="6" startposny="110px" yspeed="4" delay="0.1" scalestart="1" className="char">o</div>
+                        <div dir="-1" degrotate="40" rotatespeed="4" startposny="200px" yspeed="6" delay="0.15" scalestart="1" className="char">p</div>
+                        <div dir="-1" degrotate="0" rotatespeed="4" startposny="180px" yspeed="5" delay="0.16" scalestart="1" className="char">l</div>
+                        <div dir="-1" degrotate="0" rotatespeed="4" startposny="160px" yspeed="4" delay="0.18" scalestart="1" className="char">e</div>&nbsp;
+
+                        <div dir="-1" degrotate="20" rotatespeed="4" startposny="200px" yspeed="2" delay="0" scalestart="0.5" className="char">a</div>
+                        <div dir="+1" degrotate="20" rotatespeed="4" startposny="50px" yspeed="2" delay="0" scalestart="0.5" className="char">r</div>
+                        <div dir="-1" degrotate="20" rotatespeed="4" startposny="200px" yspeed="2" delay="0" scalestart="0.5" className="char">e</div>
 
 
                     </h1>
                 </div>
-                <p>
+                <p className="text-xl max-w-xl text-center font-semibold">
                     Audiences are more scattered and more reachable than ever. We help brands
                     become leaders on the channels of the new mainstream.
                 </p>

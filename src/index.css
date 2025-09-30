@@ -7,16 +7,20 @@
 body {
     cursor: url('/public/assets/cursor-arrow.svg'), auto;
 }
+.hero-sec{
+    cursor: url('/public/assets/cursor-pointer.svg'), auto;
+}
+
 .bg-primary{
     background: #F0EBE6;
 }
 
-.up{
+.char{
     transform: translateY(var(--progress, 0%)) rotate(var(--progressTurn)) scale(var(--ratio));
     display: inline-block;
+    
 }
-.down{
-    display: inline-block;
-    transform: translateY(var(--progress, 0%)) rotate(var(--progressTurn)) scale(var(--ratio));
-   
+.char img{
+     transform-origin: center;
 }
+

@@ -1,6 +1,6 @@
 export default function Hero() {
     return (
-        <section className="  -z-20  text-white hero bg-center w-full h-screen relative bg-red-500  flex flex-col justify-center bg-no-repeat bg-cover items-center  text-center"
+        <section className="hero-sec  text-white hero bg-center w-full h-screen relative bg-red-500  flex flex-col justify-center bg-no-repeat bg-cover items-center  text-center"
 
             style={
                 {
