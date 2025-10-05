@@ -5,6 +5,7 @@ export default function TextScroll() {
     const textRef = useRef(null);
 
     useEffect(() => {
+        // for wobble effect
         function wobble(progress, yPosn) {
             const MoveY = yPosn; // how much to move up initially
             if (progress < 0.6) {
@@ -22,6 +23,18 @@ export default function TextScroll() {
         function handleScroll() {
             if (boxRef.current && textRef.current) {
                 const rect = boxRef.current.getBoundingClientRect();
+
+                // Changing nav colors when it comes under white and black background
+                // if (rect.top < 0 && rect.bottom > 0) {
+                //     document.querySelectorAll("nav > *").forEach(el => {
+                //         el.classList.add("be-black");
+                //     });
+                // } else {
+                //     document.querySelectorAll("nav > *").forEach(el => {
+                //         el.classList.remove("be-black");
+                //     })
+                // }
+
                 const windowHeight = window.innerHeight;
                 // total scrollable distance
                 const totalScroll = rect.height - (windowHeight - 500);
@@ -36,6 +49,7 @@ export default function TextScroll() {
 
                 textRef.current.style.transform = `translateX(${moveX}%)`;
 
+                // setting default values for text animations
                 const default_MoveYSpeed = 2;
                 const default_rotateSpeed = 4;
                 const default_rotateDegree = 0;
@@ -44,6 +58,7 @@ export default function TextScroll() {
                 const default_yPosn = 0;
                 const default_dir = -1
 
+                // setting svgs
                 const first_arrow = document.querySelector(".arrow-svg");
                 const first_arrow_path = first_arrow.querySelector("path");
                 const first_fullLength = first_arrow_path.getTotalLength();
@@ -56,12 +71,13 @@ export default function TextScroll() {
                 let start = 0.5
                 let end = 1.0
                 let res = progress > start ? ((progress - start) / (end - start)) : 0;
-                console.log(res);
 
-                sec_arrow_path.style.strokeDasharray = `${res * sec_fullLength/2}px, ${sec_fullLength/2}px`;
+                sec_arrow_path.style.strokeDasharray = `${res * sec_fullLength / 2}px, ${sec_fullLength / 2}px`;
 
+                // adding animations to each character of heading
                 const chars = textRef.current.querySelectorAll(".h1-text > *");
                 chars.forEach((el, idx) => {
+                    // getting custom attrib data
                     const dir = parseInt(el.getAttribute("dir")) || default_dir;
                     const rotateDegree = parseInt(el.getAttribute("degrotate")) || default_rotateDegree;
                     const rotateSpeed = parseFloat(el.getAttribute("rotatespeed")) || default_rotateSpeed;
@@ -98,7 +114,7 @@ export default function TextScroll() {
     }, []);
 
     return (
-        <section ref={boxRef} className="bg-primary h-[300vh] w-full">
+        <section ref={boxRef} data-nav-bg="dark" className="bg-primary h-[300vh] w-full">
             <div className="sticky overflow-hidden top-0 pt-20 h-screen flex flex-col justify-evenly items-center">
                 <div ref={textRef} className="moving-text h1-div">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 378 127" fill="none" data-scroll-animation="draw" className="absolute left-[20%] -top-20 w-[20rem] team-grid__line-1-svg arrow-svg"><path d="M2 123C9 35.9999 84.5 17 124 25.9999C217.764 47.3635 207 115 177.5 123C105.777 142.45 110.737 1.99991 232.5 2C310.5 2.00006 366.5 79 376 118" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" strokeDasharray="753.06 9.08" style={{ transformOrigin: "0px 0px", strokeDashoffset: "0", strokeDasharray: "739.567px, 10000px" }} data-svg-origin="2 2"></path></svg>
@@ -165,7 +181,7 @@ export default function TextScroll() {
                         />
                     </svg>
                 </div>
-                <p className="text-xl max-w-xl text-center font-semibold">
+                <p className="text-xl max-w-xl w-[80%] text-center font-semibold">
                     Audiences are more scattered and more reachable than ever. We help brands
                     become leaders on the channels of the new mainstream.
                 </p>

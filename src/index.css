@@ -1,9 +1,13 @@
 @import "tailwindcss";
-
+*{
+    /* border: 2px solid red !important; */
+}
 .font-sans {
     font-family: "DM Sans";
 }
-
+.font-lora {
+    font-family: "Lora";
+}
 body {
     cursor: url('/public/assets/cursor-arrow.svg'), auto;
 }
@@ -24,3 +28,7 @@ body {
      transform-origin: center;
 }
 
+.be-black{
+    filter: invert(1);
+    color: black;
+}
