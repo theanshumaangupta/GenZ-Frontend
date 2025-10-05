@@ -38,7 +38,7 @@ function App() {
       <Hero />
       <TextScroll />
       <Tiktok />
-      <Brand />
+      <Brand />   
       <CallUs/>
       <Footer/>
     </>

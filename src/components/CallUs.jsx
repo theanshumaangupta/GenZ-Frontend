@@ -13,8 +13,7 @@ export default function CallUs() {
         </span>
       </h1>
       <div className="flex flex-col relative flex-wrap md:flex-row items-center justify-center mx-auto gap-10 md:-space-x-10 lg:my-20 md:py-20 lg:px-10 xl:px-10">
-
-        <div className="bg-[#2d7864] sticky top-[0px] text-white md:relative md:top-0   rotate-10 w-[60%] min-h-[20rem] md:w-[17rem] lg:w-[15rem] lg:h-[20rem] md:h-[40vw] flex flex-col justify-center items-start gap-4 p-5 rounded-2xl " alt="" >
+        <div className="bg-[#2d7864] sticky top-40 text-white md:relative md:top-0   rotate-10 w-[60%] min-h-[20rem] md:w-[17rem] lg:w-[15rem] lg:h-[20rem] md:h-[40vw] flex flex-col justify-center items-start gap-4 p-5 rounded-2xl " alt="" >
           <img src="assets/pencil-camera.svg" className="absolute left-[50%] translate-[-50%] top-0 w-30" alt="" />
           <h1 className="text-4xl font-[1000]">brand</h1>
           <div className="h-1 w-full bg-black"></div>
@@ -27,7 +26,7 @@ export default function CallUs() {
           </ul>
 
         </div>
-        <div className="bg-[#82a0ff] sticky top-[0px] text-black md:relative md:top-10 -rotate-10 w-[60%] min-h-[20rem] md:w-[17rem] lg:w-[15rem] lg:h-[20rem] md:h-[40vw] flex flex-col justify-center items-start gap-4 p-5 rounded-2xl">
+        <div className="bg-[#82a0ff] sticky top-40 text-black md:relative md:top-10 -rotate-10 w-[60%] min-h-[20rem] md:w-[17rem] lg:w-[15rem] lg:h-[20rem] md:h-[40vw] flex flex-col justify-center items-start gap-4 p-5 rounded-2xl">
           <img src="assets/phone-in-hand.svg" className="absolute left-[50%] translate-[-50%] top-0 w-30" alt="" />
           <h1 className="text-4xl font-[1000]">social</h1>
           <div className="h-1 w-full bg-black"></div>
@@ -40,7 +39,7 @@ export default function CallUs() {
           </ul>
         </div>
 
-        <div className="bg-[#f5693c] sticky top-[0px] text-white md:relative md:top-0   rotate-10 w-[60%] min-h-[20rem] md:w-[17rem] lg:w-[15rem] lg:h-[20rem] md:h-[40vw] flex  flex-col justify-center items-start gap-4 p-5 rounded-2xl " alt="" >
+        <div className="bg-[#f5693c] sticky top-40 text-white md:relative md:top-0   rotate-10 w-[60%] min-h-[20rem] md:w-[17rem] lg:w-[15rem] lg:h-[20rem] md:h-[40vw] flex  flex-col justify-center items-start gap-4 p-5 rounded-2xl " alt="" >
           <img src="assets/smile-blue.svg" className="absolute left-[50%] translate-[-50%] top-0 w-30" alt="" />
           <h1 className="text-4xl font-[1000]">activation</h1>
           <div className="h-1 w-full bg-black"></div>
@@ -52,7 +51,7 @@ export default function CallUs() {
           </ul>
 
         </div>
-        <div className="bg-[#a0325a] sticky top-[0px] text-white md:relative md:top-10 -rotate-10 w-[60%] min-h-[20rem] md:w-[17rem] lg:w-[15rem] lg:h-[20rem] md:h-[40vw] flex flex-col justify-center items-start gap-4 p-5 rounded-2xl " alt="" >
+        <div className="bg-[#a0325a] sticky top-40 text-white md:relative md:top-10 -rotate-10 w-[60%] min-h-[20rem] md:w-[17rem] lg:w-[15rem] lg:h-[20rem] md:h-[40vw] flex flex-col justify-center items-start gap-4 p-5 rounded-2xl " alt="" >
           <img src="assets/wrist-watch.svg" className="absolute left-[50%] translate-[-50%] top-0 w-30" alt="" />
           <h1 className="text-4xl font-[1000]">production</h1>
           <div className="h-1 w-full bg-black"></div>
@@ -64,7 +63,7 @@ export default function CallUs() {
           </ul>
 
         </div>
-        <div className="bg-[#f0befa] sticky top-[0px] text-black md:relative md:top-0   rotate-10 w-[60%] min-h-[20rem] md:w-[17rem] lg:w-[15rem] lg:h-[20rem] md:h-[40vw] flex flex-col justify-center items-start gap-4 p-5 rounded-2xl " alt="" >
+        <div className="bg-[#f0befa] sticky top-40 text-black md:relative md:top-0   rotate-10 w-[60%] min-h-[20rem] md:w-[17rem] lg:w-[15rem] lg:h-[20rem] md:h-[40vw] flex flex-col justify-center items-start gap-4 p-5 rounded-2xl " alt="" >
           <img src="assets/heart.svg" className="absolute left-[50%] translate-[-50%] top-0 w-30" alt="" />
           <h1 className="text-4xl font-[1000]">partners</h1>
           <div className="h-1 w-full bg-black"></div>
