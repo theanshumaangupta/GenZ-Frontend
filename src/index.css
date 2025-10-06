@@ -32,3 +32,9 @@ body {
     filter: invert(1);
     color: black;
 }
+.scale-animation {
+  transition-property: all;
+  transition-duration: 600ms;
+  transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
