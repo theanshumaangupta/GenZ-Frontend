@@ -28,7 +28,7 @@ export default function Tiktok() {
         return () => window.removeEventListener("scroll", handleScroll)
     }, [])
     return (
-        <div className="w-ful bg-primary py-20" data-nav-bg="dark" ref={boxRef2}>
+        <div className="w-full bg-primary py-20 overflow-x-hidden" data-nav-bg="dark" ref={boxRef2}>
             <div className=" flex flex-col relative m-auto max-w-fit justify-center items-center text-center ">
                 <h1 className="text-black text-3xl md:text-4xl lg:text-[7rem] lg:leading-[7rem] font-[1000] font-sans w-[80%] lg:w-[100%] max-w-4xl">
                     an agency built for the future.

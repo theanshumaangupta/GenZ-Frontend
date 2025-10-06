@@ -1,6 +1,6 @@
 @import "tailwindcss";
 *{
-    /* border: 2px solid red !important; */
+border: 1px solid red;
 }
 .font-sans {
     font-family: "DM Sans";
