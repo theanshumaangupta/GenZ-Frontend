@@ -8,13 +8,15 @@ export default function Hero() {
 
                 }}
         >
-            <nav className="fixed z-1000  top-0 p-10 flex justify-between items-center w-full">
+            <nav className="fixed z-1000  top-0 p-5 md:px-15 md:py-10  flex justify-between items-center w-full">
                 <div className="relative filter">
-                    <img src="assets/poster-crack.svg" className="-z-10  invert-80 -left-5 -top-5 w-20 absolute" alt="" />
-                    <h1 className="text-4xl font-[1000] font-sans z-10 relative">work</h1>
+                    <h1 className="text-[25px] md:text-[35px] font-[1000] font-sans z-10 relative">
+                        work
+                        <img src="assets/poster-crack.svg" className="-z-10  invert-80 -top-5 -left-5 w-[100%] max-w-[10rem] absolute" alt="" />
+                    </h1>
                 </div>
-                <img src="assets/logo.svg" className="w-40 invert-100" alt="" />
-                <img src="assets/wp-logo.svg" className="w-10 invert-100" alt="" />
+                <img src="assets/logo.svg" className="w-[25%] max-w-[10rem] invert-100" alt="" />
+                <img src="assets/wp-logo.svg" className="w-[8%] max-w-[3rem] invert-100" alt="" />
             </nav>
             <div className=" hero-content top-40 relative z-10 max-w-4xl w-[80%] font-sans text-5xl font-[1000] font text-center">
                 <h1 className="" >we
