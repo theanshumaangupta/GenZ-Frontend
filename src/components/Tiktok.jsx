@@ -67,7 +67,7 @@ export default function Tiktok() {
                 <img className="relative top-0 -rotate-10 w-[8rem] md:w-[15rem] rounded-2xl" src="assets/img/tiktok (1).webp" alt="" />
                 <img className="relative top-10 rotate-10 w-[8rem] md:w-[15rem] rounded-2xl" src="assets/img/tiktok (2).webp" alt="" />
                 <img className="relative top-0 -rotate-10 w-[8rem] md:w-[15rem] rounded-2xl" src="assets/img/tiktok (3).webp" alt="" />
-                <img className="relative hidden md:block top-10 rotate-10 w-[8rem] md:w-[15rem] rounded-2xl" src="assets/img/tiktok (4).avif" alt="" />
+                <img className="relative hidden lg:block top-10 rotate-10 w-[8rem] md:w-[15rem] rounded-2xl" src="assets/img/tiktok (4).avif" alt="" />
             </div>
             <p className=" max-w-xl w-[80%] mx-auto text-center text-xl md:text-2xl ">
                 To reach the new generation you need to know where they are. We are a true 360° agency, working the whole spectrum from TikTok content to TVC and from influencer collabs to out of home spectaculars.

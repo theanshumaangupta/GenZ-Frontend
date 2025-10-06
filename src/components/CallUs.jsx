@@ -12,7 +12,7 @@ export default function CallUs() {
           &nbsp;
         </span>
       </h1>
-      <div className="flex flex-col relative flex-wrap md:flex-row items-center justify-center mx-auto gap-10 md:-space-x-10 lg:my-20 md:py-20 lg:px-10 xl:px-10">
+      <div className="flex w-[80%] lg:w-fit flex-col relative flex-wrap md:flex-row items-center justify-center mx-auto gap-10 md:-space-x-10 lg:my-20 md:py-20 lg:px-10 xl:px-10">
         <div className="bg-[#2d7864] sticky top-40 text-white md:relative md:top-0   rotate-10 w-[60%] min-h-[20rem] md:w-[17rem] lg:w-[15rem] lg:h-[20rem] md:h-[40vw] flex flex-col justify-center items-start gap-4 p-5 rounded-2xl " alt="" >
           <img src="assets/pencil-camera.svg" className="absolute left-[50%] translate-[-50%] top-0 w-30" alt="" />
           <h1 className="text-4xl font-[1000]">brand</h1>
