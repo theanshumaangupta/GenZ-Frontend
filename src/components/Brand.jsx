@@ -192,7 +192,7 @@ export default function Brand() {
       </div>
       <div className="w-full flex items-center relative justify-center py-0 md:py-20 px-10 overflow-hidden">
         <img src="assets/water.svg" className="absolute z-0 w-[20rem] md:w-[30rem] -left-20 md:left-0  top-[95rem] md:top-[55%]" alt="" />
-        <div className="min-h-[340vh] md:min-h-[300vh] max-w-[80rem] relative w-full p-40">
+        <div className="min-h-[330vh] md:min-h-[300vh] max-w-[80rem] relative w-full p-40">
 
           <div className="people-div overflow-hidden absolute left-[5%] md:left-[15%] top-[0] md:top-[0%]  rounded-lg             w-[70%] md:w-[50%]     max-w-[20rem]      object-left-top h-auto">
             <img src="assets/img/people (1).webp" className="w-full" alt="" />
