@@ -11,7 +11,7 @@ export default function Hero() {
         <div className="md:p-[10px] w-full h-screen">
             <section
                 data-nav-bg="light"
-                className="hero-sec text-white hero bg-center w-full h-full md:rounded-3xl relative bg-red-500 flex flex-col justify-center bg-no-repeat bg-cover items-center text-center"
+                className="hero-sec overflow-hidden text-white hero bg-center w-full h-full md:rounded-3xl relative bg-red-500 flex flex-col justify-center bg-no-repeat bg-cover items-center text-center"
                 style={{
                     backgroundImage:
                         "url('https://cdn.prod.website-files.com/683703490bc01e1b8c052e06/686f6ace62e3e07623327aca_thumb-p-800.avif')",

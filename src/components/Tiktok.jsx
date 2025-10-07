@@ -1,9 +1,13 @@
+"use client"
 import { useEffect, useRef, useState } from "react"
-
+import { useOnScreen } from "./useOnScreen";
 export default function Tiktok() {
     const boxRef2 = useRef(null);
     const [animate, setAnimate] = useState();
     const [totalLength, setTotalLength] = useState();
+
+    const svgRef = useRef();
+    const isVisible = useOnScreen(svgRef, "0px");
 
     useEffect(() => {
         if (boxRef2.current) {
@@ -60,7 +64,7 @@ export default function Tiktok() {
                     />
                 </svg>
 
-                <img src="assets/pencil-hand-heart.svg" className="absolute w-20 bottom-0 right-0 lg:w-40 lg:-right-20 lg:bottom-25" alt="" />
+                <img src="assets/pencil-hand-heart.svg" ref={svgRef} className={`scale-animation absolute w-20 bottom-0 right-0 lg:w-40 lg:-right-20 lg:bottom-25 ${isVisible ? "scale-100 rotate-0" : "scale-0 -rotate-40"}`} alt="" />
             </div>
             <div className="flex max-w-fit mx-auto relative -space-x-10 my-20 md:py-20 md:px-40">
                 <img src="assets/loose-water-1.svg" className="h-full absolute left-0 top-0" alt="" />

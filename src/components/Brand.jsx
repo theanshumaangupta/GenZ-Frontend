@@ -1,4 +1,19 @@
+"use client"
+
+import { useRef } from "react"
+import { useOnScreen } from "./useOnScreen"
+
+
+
 export default function Brand() {
+  const svgRef = useRef();
+  const svgRef1 = useRef();
+  const svgRef2 = useRef();
+  const svgRef3 = useRef();
+  const isVisible = useOnScreen(svgRef, "0px");
+  const isVisible1 = useOnScreen(svgRef1, "0px");
+  const isVisible2 = useOnScreen(svgRef2, "0px");
+  const isVisible3 = useOnScreen(svgRef3, "0px");
   return (
     <div data-nav-bg="light" className="bg-black md:pb-20 md:pt-40 flex-col flex gap-10 items-center justify-center">
       <div className="w-full flex flex-col items-center py-16 overflow-x-hidden">
@@ -99,32 +114,32 @@ export default function Brand() {
       </div>
       <div className="w-full flex items-center relative justify-center py-0 md:py-20 px-10 overflow-hidden">
         <img src="assets/water.svg" className="absolute z-0 w-[20rem] md:w-[30rem] -left-20 md:left-0  top-[95rem] md:top-[55%]" alt="" />
-        <div className="min-h-[340vh] md:min-h-[200vh] max-w-[80rem] relative w-full p-40">
+        <div className="min-h-[340vh] md:min-h-[300vh] max-w-[80rem] relative w-full p-40">
 
           <div className="people-div overflow-hidden absolute left-[5%] md:left-[15%] top-[0] md:top-[0%]  rounded-lg             w-[70%] md:w-[50%]     max-w-[20rem]      object-left-top h-auto">
             <img src="assets/img/people (1).webp" className="w-full" alt="" />
-            <img src="assets/gv.svg" className="relative z-50 w-30 md:w-40 bottom-10" alt="" />
+            <img src="assets/gv.svg" ref={svgRef} className={`relative z-50 w-30 md:w-40 bottom-10 scale-animation  ${isVisible ? "scale-100 rotate-0" : "scale-0 -rotate-40"}`} alt="" />
           </div>
           <div className="people-div overflow-hidden absolute left-[0%] md:left-[0%]   top-[45rem] md:top-[18%] rounded-lg        w-[70%] md:w-[40%]     max-w-[20rem]      object-left-top h-auto">
             <img src="assets/img/people (2).webp" className="w-full" alt="" />
           </div>
           <div className="people-div overflow-hidden absolute right-[0%]               top-[20rem] md:top-[9%] rounded-lg         w-[70%] md:w-[40%]     max-w-[20rem]      object-left-top h-auto">
             <img src="assets/img/people (3).webp" className="w-full" alt="" />
-            <img src="assets/fist-fight.svg" className="relative z-50 w-30 md:w-40 bottom-20" alt="" />
+            <img src="assets/fist-fight.svg" ref={svgRef1} className={`relative z-50 w-30 md:w-40 bottom-20 scale-animation  ${isVisible1 ? "scale-100 rotate-0" : "scale-0 -rotate-0"}`}  style={{ transitionDelay: "0.5s" }} alt="" />
           </div>
           <div className="people-div overflow-hidden absolute left-[15%] md:left-[45%] top-[60rem] md:top-[35%] rounded-lg        w-[70%] md:w-[40%]     max-w-[20rem]      object-left-top h-[18rem] md:h-auto ">
             <img src="assets/img/people (4).webp" className="w-full" alt="" />
           </div>
           <div className="people-div overflow-hidden absolute right-[5%] md:right-[0%] top-[75rem] md:top-[48%] rounded-lg        w-[70%] md:w-[40%]     max-w-[20rem]      object-left-top h-auto">
             <img src="assets/img/people (5).webp" className="w-full" alt="" />
-            <img src="assets/loose-hi.svg" className="relative z-50 w-20 md:w-30 bottom-10" alt="" />
+            <img src="assets/loose-hi.svg" ref={svgRef2} className={`relative z-50 w-20 md:w-30 bottom-20 left-5 scale-animation  ${isVisible2 ? "scale-100 rotate-0" : "scale-0 -rotate-0"}`}  style={{ transitionDelay: "0.2s" }} alt="" />
           </div>
           <div className="people-div overflow-hidden absolute left-[0%] md:left-[8%]  top-[100rem] md:top-[55%] rounded-lg        w-[70%] md:w-[40%]     max-w-[20rem]      object-left-top h-auto">
             <img src="assets/img/people (6).webp" className="w-full z-10 relative" alt="" />
           </div>
-          <div className="people-div overflow-hidden absolute right-[10%] md:right-[35%] top-[115rem] md:top-[70%] rounded-lg       w-[70%] md:w-[40%]     max-w-[20rem]      object-left-top h-auto ">
+          <div className="people-div overflow-hidden absolute right-[10%] md:right-[35%] top-[115rem] md:top-[80%] rounded-lg       w-[70%] md:w-[40%]     max-w-[20rem]      object-left-top h-auto ">
             <img src="assets/img/people (7).webp" className="w-full" alt="" />
-            <img src="assets/lets-go.svg" className="relative z-0 w-40 md:w-50 bottom-20" alt="" />
+            <img src="assets/lets-go.svg" ref={svgRef3} className={`relative z-0 w-40 md:w-50 bottom-20 left-5 scale-animation  ${isVisible3 ? "scale-100 rotate-0" : "scale-0 -rotate-0"}`}  style={{ transitionDelay: "0.5s" }} alt="" />
 
           </div>
 
