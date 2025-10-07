@@ -24,16 +24,6 @@ export default function TextScroll() {
             if (boxRef.current && textRef.current) {
                 const rect = boxRef.current.getBoundingClientRect();
 
-                // Changing nav colors when it comes under white and black background
-                // if (rect.top < 0 && rect.bottom > 0) {
-                //     document.querySelectorAll("nav > *").forEach(el => {
-                //         el.classList.add("be-black");
-                //     });
-                // } else {
-                //     document.querySelectorAll("nav > *").forEach(el => {
-                //         el.classList.remove("be-black");
-                //     })
-                // }
 
                 const windowHeight = window.innerHeight;
                 // total scrollable distance

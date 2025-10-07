@@ -2,8 +2,7 @@
 
 import { useRef } from "react"
 import { useOnScreen } from "./useOnScreen"
-
-
+import useFillAnimation from "./fill";
 
 export default function Brand() {
   const svgRef = useRef();
@@ -19,21 +18,22 @@ export default function Brand() {
       <div className="w-full flex flex-col items-center py-16 overflow-x-hidden">
         {/* CARD BUNDLE */}
         <div className="relative flex justify-center items-end w-full max-w-[80rem] px-2 sm:px-5">
+
           {/* Left decorative SVG */}
-          <img
+          {/* <img
             src="assets/m-type.svg"
             alt=""
             className="w-14 sm:w-20 invert absolute -left-4 sm:-left-10 top-10 opacity-70"
-          />
+          /> */}
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 80 109" fill="none" data-scroll-animation="draw" class="flick-group__blob-scribble-svg">
+            <path d="M11.1056 107.429C11.1056 107.429 41.3921 75.9563 1.85536 45.3846C39.6893 67.1983 37.5729 21.5813 34.6647 13.925C40.0573 22.0799 72.2872 32.0642 78.2717 2.44878" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="transform-origin: 0px 0px; stroke-dashoffset: 0; stroke-dasharray: 192.992px, 0.1px;" data-svg-origin="1.8553600311279297 2.448780059814453">
+            </path>
+          </svg>
 
           {/* Main stacked cards */}
           <div
-            className="
-        flex justify-center items-end
-        -space-x-[6rem] sm:-space-x-[10rem] md:-space-x-[12rem] lg:-space-x-[15rem]
-        scale-[0.85] sm:scale-[1]
-      "
-          >
+            className="flex justify-center items-end -space-x-[6rem] sm:-space-x-[10rem] md:-space-x-[12rem] lg:-space-x-[15rem] scale-[0.85] sm:scale-[1]">
             <img
               src="assets/img/brand (1).webp"
               className="-rotate-15 rounded-2xl border-[5px] border-white w-[8rem] sm:w-[13rem] md:w-[18rem] shadow-lg"
@@ -56,7 +56,7 @@ export default function Brand() {
             />
           </div>
 
-          {/* Right decorative SVG */}
+          {/* Right decorative SVG  PencilCamera*/}
           <img
             src="assets/pencil-camera.svg"
             alt=""
@@ -125,21 +125,21 @@ export default function Brand() {
           </div>
           <div className="people-div overflow-hidden absolute right-[0%]               top-[20rem] md:top-[9%] rounded-lg         w-[70%] md:w-[40%]     max-w-[20rem]      object-left-top h-auto">
             <img src="assets/img/people (3).webp" className="w-full" alt="" />
-            <img src="assets/fist-fight.svg" ref={svgRef1} className={`relative z-50 w-30 md:w-40 bottom-20 scale-animation  ${isVisible1 ? "scale-100 rotate-0" : "scale-0 -rotate-0"}`}  style={{ transitionDelay: "0.5s" }} alt="" />
+            <img src="assets/fist-fight.svg" ref={svgRef1} className={`relative z-50 w-30 md:w-40 bottom-20 scale-animation  ${isVisible1 ? "scale-100 rotate-0" : "scale-0 -rotate-0"}`} style={{ transitionDelay: "0.5s" }} alt="" />
           </div>
           <div className="people-div overflow-hidden absolute left-[15%] md:left-[45%] top-[60rem] md:top-[35%] rounded-lg        w-[70%] md:w-[40%]     max-w-[20rem]      object-left-top h-[18rem] md:h-auto ">
             <img src="assets/img/people (4).webp" className="w-full" alt="" />
           </div>
           <div className="people-div overflow-hidden absolute right-[5%] md:right-[0%] top-[75rem] md:top-[48%] rounded-lg        w-[70%] md:w-[40%]     max-w-[20rem]      object-left-top h-auto">
             <img src="assets/img/people (5).webp" className="w-full" alt="" />
-            <img src="assets/loose-hi.svg" ref={svgRef2} className={`relative z-50 w-20 md:w-30 bottom-20 left-5 scale-animation  ${isVisible2 ? "scale-100 rotate-0" : "scale-0 -rotate-0"}`}  style={{ transitionDelay: "0.2s" }} alt="" />
+            <img src="assets/loose-hi.svg" ref={svgRef2} className={`relative z-50 w-20 md:w-30 bottom-20 left-5 scale-animation  ${isVisible2 ? "scale-100 rotate-0" : "scale-0 -rotate-0"}`} style={{ transitionDelay: "0.2s" }} alt="" />
           </div>
           <div className="people-div overflow-hidden absolute left-[0%] md:left-[8%]  top-[100rem] md:top-[55%] rounded-lg        w-[70%] md:w-[40%]     max-w-[20rem]      object-left-top h-auto">
             <img src="assets/img/people (6).webp" className="w-full z-10 relative" alt="" />
           </div>
           <div className="people-div overflow-hidden absolute right-[10%] md:right-[35%] top-[115rem] md:top-[80%] rounded-lg       w-[70%] md:w-[40%]     max-w-[20rem]      object-left-top h-auto ">
             <img src="assets/img/people (7).webp" className="w-full" alt="" />
-            <img src="assets/lets-go.svg" ref={svgRef3} className={`relative z-0 w-40 md:w-50 bottom-20 left-5 scale-animation  ${isVisible3 ? "scale-100 rotate-0" : "scale-0 -rotate-0"}`}  style={{ transitionDelay: "0.5s" }} alt="" />
+            <img src="assets/lets-go.svg" ref={svgRef3} className={`relative z-0 w-40 md:w-50 bottom-20 left-5 scale-animation  ${isVisible3 ? "scale-100 rotate-0" : "scale-0 -rotate-0"}`} style={{ transitionDelay: "0.5s" }} alt="" />
 
           </div>
 

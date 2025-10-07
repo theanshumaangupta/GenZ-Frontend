@@ -1,18 +1,38 @@
 "use client"
 import { useEffect, useRef, useState } from "react"
 import { useOnScreen } from "./useOnScreen";
-import useFillAnimation from "./fill";
-
-
 export default function Tiktok() {
 
     // .for heart scale animation
     const svgRef = useRef();
     const isVisible = useOnScreen(svgRef, "0px");
-
+    
     const boxRef2 = useRef(null);
-    const { pathStyle } = useFillAnimation(boxRef2, { duration: "0.8s" });
+    const [animate, setAnimate] = useState();
+    const [totalLength, setTotalLength] = useState();
 
+    useEffect(() => {
+        if (boxRef2.current) {
+            const scratch = document.querySelector(".scratch path");
+            setTotalLength(scratch.getTotalLength());
+        }
+    }, [boxRef2])
+
+    useEffect(() => {
+        function handleScroll() {
+            if (!boxRef2.current) return;
+            const box = boxRef2.current;
+            const boxTop = box.getBoundingClientRect().top;
+            if (boxTop < (window.innerHeight / 4)) {
+                setAnimate(true);
+            }
+            else {
+                setAnimate(false);
+            }
+        }
+        window.addEventListener("scroll", handleScroll)
+        return () => window.removeEventListener("scroll", handleScroll)
+    }, [])
     return (
         <div className="w-full bg-primary py-20 overflow-x-hidden" data-nav-bg="dark" ref={boxRef2}>
             <div className=" flex flex-col relative m-auto max-w-fit justify-center items-center text-center ">
@@ -35,7 +55,12 @@ export default function Tiktok() {
                         strokeWidth="3"
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        style={pathStyle}
+                        style={{
+                            transformOrigin: "0px 0px",
+                            strokeDashoffset: "0",
+                            transition: "0.6s ease-in-out",
+                            strokeDasharray: `${animate ? totalLength : 0}px, ${totalLength}px`,
+                        }}
                         data-svg-origin="2 2"
 
                     />
