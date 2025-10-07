@@ -11,14 +11,15 @@
 // const boxRef2 = useRef(null);
 // const { pathStyle } = useFillAnimation(boxRef2, { duration: "1.2s", triggerOffset: 10 });
 
-// and add a scratch class in path 
+// and add a scratch class in svg 
+// add pathstyle in path style tag
 // and add ref={boxRef2} in ur section div to analyze its posn on screen
 
 
 
 
 import { useEffect, useState } from "react";
-export default function useFillAnimation(boxRef2 , options= {}) {
+export default function useFillAnimation(boxRef2, options = {}) {
     const { triggerOffset = 4, duration = "0.6s", easing = "ease-in-out" } = options;
     const [animate, setAnimate] = useState(false);
     const [totalLength, setTotalLength] = useState(0);
@@ -33,7 +34,8 @@ export default function useFillAnimation(boxRef2 , options= {}) {
         function handleScroll() {
             if (!boxRef2.current) return;
             const box = boxRef2.current;
-            box.style.border = "1px solid red";
+            // for debuing purpose only
+            // box.style.border = "1px solid red";
             const boxTop = box.getBoundingClientRect().top;
             if (boxTop < (window.innerHeight / triggerOffset)) {
                 setAnimate(true);
