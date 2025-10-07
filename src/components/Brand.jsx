@@ -18,18 +18,12 @@ export default function Brand() {
       <div className="w-full flex flex-col items-center py-16 overflow-x-hidden">
         {/* CARD BUNDLE */}
         <div className="relative flex justify-center items-end w-full max-w-[80rem] px-2 sm:px-5">
-
           {/* Left decorative SVG */}
-          {/* <img
+          <img
             src="assets/m-type.svg"
             alt=""
             className="w-14 sm:w-20 invert absolute -left-4 sm:-left-10 top-10 opacity-70"
-          /> */}
-
-          <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 80 109" fill="none" data-scroll-animation="draw" class="flick-group__blob-scribble-svg">
-            <path d="M11.1056 107.429C11.1056 107.429 41.3921 75.9563 1.85536 45.3846C39.6893 67.1983 37.5729 21.5813 34.6647 13.925C40.0573 22.0799 72.2872 32.0642 78.2717 2.44878" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="transform-origin: 0px 0px; stroke-dashoffset: 0; stroke-dasharray: 192.992px, 0.1px;" data-svg-origin="1.8553600311279297 2.448780059814453">
-            </path>
-          </svg>
+          />
 
           {/* Main stacked cards */}
           <div
