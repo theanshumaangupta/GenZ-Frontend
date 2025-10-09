@@ -12,6 +12,63 @@ export default function Tiktok() {
 
     const boxRef2 = useRef(null);
     const { pathStyle } = useFillAnimation(boxRef2, { duration: "0.8s" });
+    const area = document.getElementById('track-area');
+
+    let lastX = null, lastY = null, lastTime = null;
+    let velocityX = 0, velocityY = 0, speed = 0;
+
+    useEffect(() => {
+        function handleMouseMove(e) {
+            const now = performance.now()
+            if (lastX != null && lastY != null && lastTime != null) {
+                const dx = e.clientX - lastX
+                const dy = e.clientY - lastY
+                const dt = now - lastTime
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                speed = (distance / dt) * 1000
+                velocityX = dx;
+                velocityY = dy;
+
+            }
+            lastX = e.clientX
+            lastY = e.clientY
+            lastTime = now           
+        }
+        function handleMouseEnter(area) {
+            const directionLength = Math.sqrt(velocityX ** 2 + velocityY ** 2) || 1;
+            const maxPush = 400;
+            const basePush = 0;
+            const intensity = Math.min(basePush + speed / 20, maxPush);
+
+            const pushX = (velocityX / directionLength) * intensity;
+            const pushY = (velocityY / directionLength) * intensity;
+
+            area.style.transition = "transform 0.15s ease-out"
+            area.style.transform = `translate(${pushX}px, ${pushY}px) `
+
+            setTimeout(() => {
+                area.style.transition = 'transform 0.4s ease-in-out'
+                area.style.transform = "translate(0, 0)"
+            }, 150)
+        }
+
+        const cards = document.querySelectorAll(".push-card")
+        cards.forEach((card) => {
+            card.addEventListener('mouseenter', () => handleMouseEnter(card));
+        })
+        window.addEventListener("mousemove", handleMouseMove);
+
+        return (() => {
+            window.removeEventListener("mousemove", handleMouseMove)
+            cards.forEach((card) => {
+                card.removeEventListener("mouseenter", () => handleMouseEnter(card))
+            })
+        })
+    })
+    const cardStyle = {
+        transition: "transform 0.3s ease-out",
+        userSelect: "none",
+    };
 
     return (
         <div className="w-full bg-primary py-20 overflow-x-hidden" data-nav-bg="dark" ref={boxRef2}>
@@ -43,12 +100,12 @@ export default function Tiktok() {
 
                 <img src="assets/pencil-hand-heart.svg" ref={svgRef} className={`scale-animation absolute w-20 bottom-0 right-0 lg:w-40 lg:-right-20 lg:bottom-25 ${isVisible ? "scale-100 rotate-0" : "scale-0 -rotate-40"}`} alt="" />
             </div>
-            <div className="flex max-w-fit mx-auto relative -space-x-10 my-20 md:py-20 md:px-40">
+            <div className="flex max-w-fit mx-auto relative -space-x-10 my-20 md:py-20 md:px-40 overflow-visible">
                 <img src="assets/loose-water-1.svg" className="h-full absolute left-0 top-0" alt="" />
-                <img className="relative top-0 -rotate-10 w-[8rem] md:w-[15rem] rounded-2xl" src="assets/img/tiktok (1).webp" alt="" />
-                <img className="relative top-10 rotate-10 w-[8rem] md:w-[15rem] rounded-2xl" src="assets/img/tiktok (2).webp" alt="" />
-                <img className="relative top-0 -rotate-10 w-[8rem] md:w-[15rem] rounded-2xl" src="assets/img/tiktok (3).webp" alt="" />
-                <img className="relative hidden lg:block top-10 rotate-10 w-[8rem] md:w-[15rem] rounded-2xl" src="assets/img/tiktok (4).avif" alt="" />
+                <img style={cardStyle} className="push-card relative top-0 -rotate-10 w-[8rem] md:w-[15rem] rounded-2xl" src="assets/img/tiktok (1).webp" alt="" />
+                <img style={cardStyle} className="push-card relative top-10 rotate-10 w-[8rem] md:w-[15rem] rounded-2xl" src="assets/img/tiktok (2).webp" alt="" />
+                <img style={cardStyle} className="push-card relative top-0 -rotate-10 w-[8rem] md:w-[15rem] rounded-2xl" src="assets/img/tiktok (3).webp" alt="" />
+                <img style={cardStyle} className="push-card relative hidden lg:block top-10 rotate-10 w-[8rem] md:w-[15rem] rounded-2xl" src="assets/img/tiktok (4).avif" alt="" />
             </div>
             <p className=" max-w-xl w-[80%] mx-auto text-center text-xl md:text-2xl ">
                 To reach the new generation you need to know where they are. We are a true 360° agency, working the whole spectrum from TikTok content to TVC and from influencer collabs to out of home spectaculars.
