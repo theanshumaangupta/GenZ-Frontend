@@ -23,6 +23,8 @@ export default function Brand() {
   const isVisible1 = useOnScreen(svgRef1, "0px");
   const isVisible2 = useOnScreen(svgRef2, "0px");
   const isVisible3 = useOnScreen(svgRef3, "0px");
+
+
   return (
     <div data-nav-bg="light" className="bg-black md:pb-20 md:pt-40 flex-col flex gap-10 items-center justify-center">
       <div className="w-full flex flex-col items-center py-16 overflow-x-hidden">
@@ -55,6 +57,7 @@ export default function Brand() {
 
             className="flex justify-center items-end -space-x-[6rem] sm:-space-x-[10rem] md:-space-x-[12rem] lg:-space-x-[15rem] scale-[0.85] sm:scale-[1]"
           >
+
             <img
               src="assets/img/brand (1).webp"
               className="-rotate-15 rounded-2xl border-[5px] border-white w-[8rem] sm:w-[13rem] md:w-[18rem] shadow-lg"
@@ -75,6 +78,7 @@ export default function Brand() {
               src="assets/img/brand (5).webp"
               className="rotate-15 rounded-2xl border-[5px] border-white w-[8rem] sm:w-[13rem] md:w-[18rem] shadow-md"
             />
+
           </div>
 
           {/* Right decorative SVG */}

@@ -33,12 +33,31 @@ body {
 .char img {
     transform-origin: center;
 }
-
-.be-black {
-    filter: invert(1);
-    color: black;
+@keyframes text-wobble {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(-5deg); }
+  50%  { transform: rotate(5deg); }
+  75%  { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
 }
 
+.text-hover-wobble {
+  display: inline-block;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+.text-hover-wobble:hover {
+  animation: text-wobble 0.5s ease-in-out 1;
+}
+
+
+.be-black *{
+    filter: invert(1);
+    /* color: black; */
+}
+.no-invert, .no-invert path{
+  filter: invert(0) !important;
+}
 .scale-animation {
     transition-property: all;
     transition-duration: 600ms;
