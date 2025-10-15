@@ -23,7 +23,7 @@ export default function Hero() {
                     frameBorder="0"
                     allow="autoplay; fullscreen; picture-in-picture"
                     allowFullScreen
-                    className="vimeo-player__iframe pointer-events-none vimeo-bg absolute top-1/2 left-1/2 min-w-[290%] md:min-w-[200%] min-h-[200%]"
+                    className="vimeo-player__iframe pointer-events-none vimeo-bg absolute top-1/2 left-1/2 min-w-[370%] sm:min-w-[190%] md:min-w-[160%] min-h-[200%]"
                     style={{
                         transform: "translate(-50%, -50%)",
                         pointerEvents: "none",
