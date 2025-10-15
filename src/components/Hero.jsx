@@ -14,9 +14,22 @@ export default function Hero() {
                 className="hero-sec overflow-hidden text-white hero bg-center w-full h-full md:rounded-3xl relative bg-red-500 flex flex-col justify-center bg-no-repeat bg-cover items-center text-center"
                 style={{
                     backgroundImage:
-                        "url('https://cdn.prod.website-files.com/683703490bc01e1b8c052e06/686f6ace62e3e07623327aca_thumb-p-800.avif')",
+                        "url(assets/hero-filler.png)",
                 }}
             >
+
+                <iframe
+                    src="https://player.vimeo.com/video/1100291628?background=1&autoplay=1&loop=1&muted=1"
+                    frameBorder="0"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    className="vimeo-player__iframe pointer-events-none vimeo-bg absolute top-1/2 left-1/2 min-w-[290%] md:min-w-[200%] min-h-[200%]"
+                    style={{
+                        transform: "translate(-50%, -50%)",
+                        pointerEvents: "none",
+                    }}
+                ></iframe>
+
                 <nav className="fixed z-1000 top-0 p-5 md:px-10 md:py-10 flex justify-between items-center w-full">
                     <div className="relative">
                         <div className="text-[25px] md:text-[35px] font-[1000] font-sans z-10 relative group ">
@@ -66,31 +79,32 @@ export default function Hero() {
                         </div>
                     </div>
                     <img src="assets/logo3.png" className="w-[25%] max-w-[10rem] text-hover-wobble" alt="" />
-                    <div className="relative group p-3">
+                    <div className="relative group p-0">
 
                         <img src="assets/wp-logo.svg" className=" w-[2rem] max-w-[3rem] invert-100 group-hover:invert-100" alt="" />
                         <div
-                            className="absolute pt-25 pb-10 -z-100 -top-4 -right-4 w-80 md:w-96 bg-primary text-black text-sm rounded-3xl p-4 overflow-hidden origin-top-right scale-0 group-hover:scale-100 transition-transform duration-300 flex flex-col items-center  gap-4 "
+                            className="absolute pt-20 pb-10 -z-100 -top-4 -right-4 w-80 md:w-80 bg-primary text-black text-sm rounded-3xl p-4 overflow-hidden origin-top-right scale-0 group-hover:scale-100 transition-transform duration-300 flex flex-col items-center  gap-4 "
                         >
                             <div className="flex justify-center items-center gap-4">
-                               <img src="assets/img/qr.jpg" className="w-[60%]" alt="" />
+                                <img src="assets/img/qr.jpg" className="w-[60%]" alt="" />
                             </div>
 
                             <div className="text-2xl font-bold text-center">
-                              WhatsApp Us
+                                WhatsApp Us
                             </div>
 
                             <div className="flex items-center gap-4 w-80 text-center">
-                               Scan the QR code to chat with us via your smartphone
+                                Scan the QR code to chat with us via your smartphone
                             </div>
                             <a href="https://api.whatsapp.com/send/?phone=918858684812&text&type=phone_number&app_absent=0" target="_blank">
-                            <div className="rounded text-black font-normal text-2xl w-full h-10 flex justify-center items-center  text-hover-wobble">Chat Via Desktop !</div></a>
+                                <div className="rounded text-black font-normal text-2xl w-full h-10 flex justify-center items-center  text-hover-wobble">Chat Via Desktop !</div></a>
                         </div>
 
                     </div>
                 </nav>
 
                 <div className="hero-content top-40 relative z-10 max-w-6xl w-[90%] font-sans text-5xl font-[1000] text-center">
+
                     <h1 className="text-2xl sm:text-5xl md:text-6xl lg:text-8xl">
                         <span
                             className={`scale-animation inline-block ${isVisible ? "scale-100" : "scale-0"

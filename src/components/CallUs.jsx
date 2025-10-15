@@ -157,7 +157,14 @@ export default function CallUs() {
           </h1>
         </div>
 
-        <div className="w-full lg:w-fit z-50 flex flex-col lg:flex-row h-full gap-4">
+        <div className="w-full relative lg:w-fit z-50 flex flex-col lg:flex-row h-full gap-4">
+          <div className="absolute top-0 z-10 h-40 w-full" style={{
+            background: "linear-gradient(to bottom, rgba(240, 235, 230, 1) 0%, rgba(240, 235, 230, 0.738) 19%, rgba(240, 235, 230, 0.541) 34%, rgba(240, 235, 230, 0.382) 47%, rgba(240, 235, 230, 0.278) 56.5%, rgba(240, 235, 230, 0.194) 65%, rgba(240, 235, 230, 0.126) 73%, rgba(240, 235, 230, 0.075) 80.2%, rgba(240, 235, 230, 0.042) 86.1%, rgba(240, 235, 230, 0.021) 91%, rgba(240, 235, 230, 0.008) 95.2%, rgba(240, 235, 230, 0.002) 98.2%, transparent 100%)"
+          }}></div>
+          <div className="absolute bottom-0 z-10 h-40 w-full" style={{
+            background: "linear-gradient(to bottom, rgba(240, 235, 230, 1) 0%, rgba(240, 235, 230, 0.738) 19%, rgba(240, 235, 230, 0.541) 34%, rgba(240, 235, 230, 0.382) 47%, rgba(240, 235, 230, 0.278) 56.5%, rgba(240, 235, 230, 0.194) 65%, rgba(240, 235, 230, 0.126) 73%, rgba(240, 235, 230, 0.075) 80.2%, rgba(240, 235, 230, 0.042) 86.1%, rgba(240, 235, 230, 0.021) 91%, rgba(240, 235, 230, 0.008) 95.2%, rgba(240, 235, 230, 0.002) 98.2%, transparent 100%)"
+            , transform: "scaleY(-1)"
+          }}></div>
           {/* === Left Bar (STANDARD Direction: Left/Up) === */}
           <div className="left-bar h-[20vh] lg:h-screen w-full lg:w-60 overflow-hidden">
             <div className="flex flex-row lg:flex-col gap-4 w-max lg:w-full h-full animate-scroll-x lg:animate-scroll-y"> {/* Applied standard animations */}
